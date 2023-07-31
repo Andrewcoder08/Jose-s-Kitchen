@@ -1,0 +1,97 @@
+/* our story styles */
+.ourStory__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-family: "Poppins";
+}
+
+.ourStory__info {
+  font-family: "Raleway";
+}
+
+.ourStory__title,
+.ourGoals__title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--black-1);
+  margin-bottom: 1rem;
+}
+
+.ourStory__subtitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--black-1);
+  margin-bottom: 2rem;
+}
+
+.ourStory__text,
+.ourGoals__text {
+  font-size: 1.4rem;
+
+  line-height: 1.4em;
+  color: var(--black-2);
+}
+
+@media only screen and (min-width: 768px) {
+  .ourStory__wrapper {
+    flex-direction: row;
+    gap: 3rem;
+  }
+
+  .ourStory__img,
+  .ourStory__info {
+    flex: 1;
+  }
+
+  .ourStory__title,
+  .ourGoals__title {
+    font-size: 3.6rem;
+  }
+
+  .ourStory__subtitle {
+    font-size: 1.8rem;
+  }
+
+  .ourStory__text,
+  .ourGoals__text {
+    font-size: 1.8rem;
+    max-width: 800px;
+  }
+}
+
+/* our goals style */
+.ourGoals__info {
+  text-align: left;
+}
+
+.ourGoals__img__wrapper img {
+  object-fit: cover;
+}
+
+.ourGoals__img__wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+}
+
+.ourGoals__img1 {
+  /* for 1st image grid row is 1/3 image will start from 1st row and go to 3*/
+  grid-row: 1/3;
+}
+/* for large devices */
+@media only screen and (min-width: 768px) {
+  .ourGoals__info {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .ourGoals__img__wrapper {
+    gap: 2rem;
+  }
+  .ourGoals__text {
+    margin: 0 auto;
+  }
+}

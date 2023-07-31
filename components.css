@@ -1,0 +1,533 @@
+/* all the css for the components */
+/* all reusable style will be here */
+
+/* nav styles here */
+.nav {
+  padding: 2rem 0;
+}
+
+/* we will use these for mobile devices */
+.nav__icon,
+.nav__close,
+.nav__bgOverlay {
+  display: none;
+}
+
+.nav__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav__list li {
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+.nav__list .nav__link {
+  font-size: 1.8rem;
+  font-family: "Poppins";
+  color: var(--black-2);
+  padding: 0.5rem;
+}
+
+/* style to be applied when we hover over a link */
+.nav__list li:hover .nav__link {
+  color: var(--red-1);
+}
+
+@media only screen and (max-width: 768px) {
+  /* navbar for mobile device */
+  .nav {
+    position: relative;
+  }
+
+  .nav__icon {
+    display: block;
+  }
+
+  /* givving same height and width to both close and menu svg */
+  .nav__icon svg {
+    pointer-events: none;
+    height: 30px;
+    width: 30px;
+  }
+
+  .nav__close svg {
+    pointer-events: none;
+    height: 30px;
+    width: 30px;
+  }
+
+  .nav__close {
+    display: block;
+    position: absolute;
+    color: var(--black-1);
+    right: 1rem;
+    top: 1rem;
+    cursor: pointer;
+  }
+
+  /* by default nav list containing cross icon is outside view, when we click on menu style is applied and it gets */
+  .nav__list {
+    z-index: 1000;
+    position: absolute;
+    /* we need left 100% so that it sticks at extreme right and by default stays outside view */
+    left: 100%;
+    top: 0;
+    height: 100vh;
+    width: 80%;
+    background-color: var(--lightRed-1);
+    display: flex;
+    align-items: center;
+    /* flex end responsible for the list to be aligned right side */
+    justify-content: flex-end;
+    padding-right: 2rem;
+    /* initially translateX 0 means it is outside screen to have it inside I need to do -100 */
+    transform: translateX(0);
+    overflow: hidden;
+    transition: 0.3s ease-in transform;
+  }
+
+  /* when we have show class we will have the menu back */
+  .nav__list.show {
+    transform: translateX(-100%);
+  }
+
+  /* the display block gives it line break */
+  .nav__list li {
+    display: block;
+    text-align: right;
+    margin-bottom: 1.5rem;
+  }
+
+  .nav__list a {
+    font-size: 1.6rem;
+  }
+
+  /* overlay will be responsible for dark overlay */
+  .nav__bgOverlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    height: 100vh;
+    /* we will have display block when we want to activate it, we want to activate when we open menu*/
+    display: none;
+    width: 100%;
+    background: rgba(18, 24, 14, 0.8);
+  }
+
+  .nav__bgOverlay.active {
+    display: block;
+  }
+}
+
+/* global button style */
+.btn {
+  color: var(--red-1);
+  font-family: "Poppins";
+  font-weight: 500;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  padding: 1.2rem 2rem;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background: white;
+  border: 1px solid red;
+  color: var(--red-1);
+}
+
+.primary-btn {
+  color: var(--white-1);
+  background: var(--red-1);
+  transition: 0.3s ease;
+}
+
+.primary-btn:hover {
+  background: white;
+  border: 1px solid red;
+  color: var(--red-1);
+}
+
+@media only screen and (min-width: 768px) {
+  .btn {
+    padding: 1.3rem 2rem;
+    font-size: 2rem;
+  }
+}
+
+/* footer styles by default for mobile device */
+footer {
+  background: var(--lightRed-1);
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+}
+
+.footer__wrapper {
+  display: flex;
+  flex-direction: column;
+  /* gap property sets gap between rows and columnns */
+  gap: 3rem;
+}
+
+.footer__logo {
+  width: 200px;
+  margin-bottom: 2rem;
+}
+
+.footer_desc {
+  font-size: 1.4rem;
+  color: var(--black-2);
+  margin-bottom: 2rem;
+}
+
+.footer__socials__title {
+  font-size: 1.8rem;
+  color: var(--black-1);
+  margin-bottom: 1rem;
+}
+
+.footer__socials__list li {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.footer__socials__list a {
+  padding: 0.5rem 0.8rem;
+  background-color: var(--white-1);
+  border: 1px solid var(--red-2);
+  border-radius: 0.5rem;
+}
+
+.footer__socials__list a svg {
+  width: 20px;
+  color: var(--black-2);
+}
+
+.footer__text__title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--black-1);
+  font-weight: 600;
+}
+
+.footer__text a {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--black-2);
+  font-family: "Raleway";
+  font-weight: 500;
+  line-height: 1.4em;
+}
+
+.footer__text a:hover {
+  color: var(--red-1);
+}
+
+#copyright {
+  padding: 0.5rem 0;
+}
+
+.copyright__text {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+/* footer for large device */
+@media only screen and (min-width: 768px) {
+  footer {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+  }
+
+  .footer__wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .footer__col1 {
+    flex: 4;
+  }
+
+  .footer__col2,
+  .footer__col3,
+  .footer__col4 {
+    flex: 2;
+  }
+
+  .footer__desc {
+    max-width: 300px;
+    font-size: 1.8rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .footer__socials__title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer__text__title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer__text a {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  #copyright {
+    padding: 0.5rem 0;
+  }
+
+  .copyright__text {
+    font-size: 1.6rem;
+    text-align: left;
+  }
+
+  .footer__text a:hover {
+    color: var(--red-1);
+  }
+}
+
+/* Store Info Style */
+.store__info__wrapper {
+  display: flex;
+  /* stretch makes sure every item of same row have same height */
+  align-items: stretch;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.store__info__item {
+  background-color: var(--lightRed-1);
+  padding: 20px 30px;
+  text-align: center;
+  border-radius: 12px;
+  width: 150px;
+}
+
+.store__info__icon {
+  width: 30px;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+}
+
+.store__info__title {
+  font-size: 1.4rem;
+  font-family: "Poppins";
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--black-1);
+}
+
+.store__info__text {
+  font-size: 1.4rem;
+  font-family: "Raleway";
+  color: var(--black-2);
+}
+
+@media only screen and (min-width: 768px) {
+  .store__info__wrapper {
+    gap: 2rem;
+  }
+
+  .store__info__item {
+    min-width: 200px;
+    padding: 40px 0;
+  }
+
+  .store__info__icon {
+    width: 47px;
+    margin-bottom: 2.5rem;
+  }
+
+  .store__info__title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* style for top dishes - dishGrid*/
+
+.dishGrid__title {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  color: var(--black-1);
+}
+
+.dishGrid__wrapper {
+  display: grid;
+  /* auto fit enables auto placement of child elements */
+  /* children have base min value 140px and max value 1fr */
+  /* on smalll screen they will take up the full 1fr */
+  /* as they reach 140px they will start to flow onto the same line */
+  /* 1fr =225px */
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.dishGrid__item {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--lightRed-1);
+  padding: 0.5rem;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.dishGrid__item__image {
+  flex: 4;
+}
+
+.dishGrid__item__info {
+  flex: 5;
+}
+
+.dishGrid__item__image img {
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.dishGrid__item__title {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.3em;
+  color: var(--black-1);
+  margin-bottom: 0.5rem;
+}
+
+.dishGrid__item__price {
+  font-size: 1.4rem;
+  color: green;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.dishGrid__item__stars {
+  max-height: 15px;
+  width: max-content;
+}
+
+/* dishgrid style for large devices */
+@media only screen and (min-width: 768px) {
+  .dishGrid__title {
+    font-size: 2.4rem;
+  }
+
+  .dishGrid__wrapper {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+  }
+
+  .dishGrid__item {
+    flex-direction: row;
+    padding: 1.5rem;
+  }
+
+  .dishGrid__item__info {
+    margin-left: 0.5rem;
+  }
+
+  .dishGrid__item__title {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .dishGrid__item__price {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* style for contact form */
+#form {
+  padding: 5rem 0;
+}
+
+.form__title {
+  font-size: 1.8rem;
+  color: var(--black-1);
+  font-weight: 600;
+}
+
+.form__wrapper {
+  padding: 3rem 0;
+}
+
+.form__wrapper form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.form__group label {
+  font-family: "Poppins";
+  color: var(--black-2);
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.form__group input,
+.form__group textarea,
+.form__group select {
+  width: 100%;
+  border: none;
+  background-color: var(--lightRed-1);
+  font-size: 1.4rem;
+  font-family: "Raleway";
+  font-weight: 600;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  color: var(--black-2);
+}
+
+.form__group textarea {
+  /* WE CAN ONLY RESIZE TEXT AREA VERTICALLY */
+  resize: vertical;
+}
+
+.form__wrapper button[type="submit"] {
+  width: max-content;
+  border: none;
+  padding: 1rem 4rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+}
+
+/* contact form for large devices */
+@media only screen and (min-width: 768px) {
+  .form__title {
+    font-size: 3.6rem;
+  }
+
+  .form__wrapper {
+    padding: 5rem 0;
+  }
+
+  .form__wrapper form {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .form__group__full {
+    grid-column: 1/3;
+  }
+
+  .form__group label {
+    font-size: 1.8rem;
+  }
+
+  .form__group input,
+  .form__group textarea,
+  .form__group select {
+    font-size: 1.8rem;
+    padding: 2rem;
+    margin-top: 1.5rem;
+  }
+}
